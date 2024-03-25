@@ -251,6 +251,24 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    ValidationError:
+      type: object
+      properties:
+        detail:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: array
+                items:
+                  type: string
+              msg:
+                type: string
+              type:
+                type: string
+      required:
+        - detail
     TransBase:
       properties:
         transaction_id:
