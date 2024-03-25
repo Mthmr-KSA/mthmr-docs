@@ -1,0 +1,313 @@
+openapi: 3.1.0
+info:
+  title: MTHMR CashBack
+  version: 0.1.0
+servers:
+  - url: https://readme.mthmr.com/
+paths:
+  /gettoken:
+    get:
+      tags:
+        - Authentication
+      summary: Get Token
+      description: |-
+        URL = "issued when connecting to the application"
+        APPLICATION-ID = "issued when connecting to the application"
+        APPLICATION-KEY = "issued when connecting to the application"
+      operationId: get_gettoken_gettoken_get
+      parameters:
+        - name: APPLICATION-ID
+          in: header
+          required: true
+          schema:
+            type: string
+            title: Application-Id
+        - name: APPLICATION-KEY
+          in: header
+          required: true
+          schema:
+            type: string
+            title: Application-Key
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /customers/:
+    post:
+      tags:
+        - Customer
+      summary: Add Customers
+      description: |-
+        Create a customer object in MTHMR CashBack:
+        "customer_id" - your internal customer_id
+      operationId: add_customers_customers__post
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomerBase'
+              title: Customerd
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /customers:
+    get:
+      tags:
+        - Customer
+      summary: Get Customers
+      description: Getting your customers
+      operationId: get_customers_customers_get
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /cashbackpayments:
+    get:
+      tags:
+        - Customer
+      summary: Get Cashback Payments
+      description: |-
+        Receiving Cashback data:
+        date_from = '2023-01-01'
+        date_to = '2023-02-01'
+      operationId: get_cashbackpayments_cashbackpayments_get
+      parameters:
+        - name: date_from
+          in: query
+          required: false
+          schema:
+            type: string
+            title: Date From
+        - name: date_to
+          in: query
+          required: false
+          schema:
+            type: string
+            title: Date To
+        - name: Token
+          in: header
+          required: false
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /transactions:
+    post:
+      tags:
+        - Transaction
+      summary: Add Multiple Transactions
+      description: |-
+        Adding Transactions:
+        "customer_id" - your internal customer_id
+        "transaction_id" - unique transaction ID
+        "description" - description of the transaction
+        "date" - transaction date GMT
+        "amount" - transaction amount
+        "location" - transaction location
+      operationId: add_transactions_transactions_post
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TransBase'
+              title: Transactiond
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /activeoffers:
+    get:
+      tags:
+        - Offer
+      summary: Active Offers
+      operationId: read_all_activeoffers_activeoffers_get
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CustomerBase:
+      properties:
+        customer_id:
+          type: string
+          title: Customer Id
+          default: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d
+        birthday:
+          type: string
+          format: date
+          title: Birthday
+        gender:
+          type: string
+          title: Gender
+          default: Male
+        location_id:
+          type: integer
+          title: Location Id
+          default: 1
+      type: object
+      required:
+        - birthday
+      title: CustomerBase
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TransBase:
+      properties:
+        transaction_id:
+          type: string
+          title: Transaction Id
+          default: b65cca2a-6809-11ee-8c99-0242ac120002
+        description:
+          type: string
+          title: Description
+          default: description
+        customer_id:
+          type: string
+          title: Customer Id
+          default: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d
+        date:
+          type: string
+          format: date-time
+          title: Date
+          default: '2023-11-08T12:59:53.242148'
+        amount:
+          type: number
+          title: Amount
+          default: 100
+        merchant_id:
+          type: integer
+          title: Merchant Id
+      type: object
+      required:
+        - merchant_id
+      title: TransBase
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
+tags:
+  - name: Offer
+    description: Offer
+  - name: Customer
+    description: Customer
+  - name: Transaction
+    description: Transaction
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

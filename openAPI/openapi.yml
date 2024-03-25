@@ -1,0 +1,267 @@
+openapi: 3.1.0
+info:
+  title: MTHMR CashBack
+  version: 0.1.0
+servers:
+  - url: https://readme.mthmr.com/
+paths:
+  /gettoken:
+    get:
+      tags:
+        - Authentication
+      summary: Get Token
+      description: |-
+        Retrieve a token for authentication.
+        This endpoint is used to obtain a token for accessing other endpoints.
+      operationId: get_gettoken_gettoken_get
+      parameters:
+        - name: APPLICATION-ID
+          in: header
+          required: true
+          description: The application ID issued when connecting to the application.
+          schema:
+            type: string
+            title: Application-Id
+        - name: APPLICATION-KEY
+          in: header
+          required: true
+          description: The application key issued when connecting to the application.
+          schema:
+            type: string
+            title: Application-Key
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /customers/:
+    post:
+      tags:
+        - Customer
+      summary: Add Customers
+      description: |-
+        Create one or more customer objects in MTHMR CashBack.
+        This endpoint allows adding new customer records to the system.
+      operationId: add_customers_customers__post
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomerBase'
+              title: Customerd
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+        - Customer
+      summary: Get Customers
+      description: Retrieve a list of customers.
+      operationId: get_customers_customers_get
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /cashbackpayments:
+    get:
+      tags:
+        - Customer
+      summary: Get Cashback Payments
+      description: |-
+        Retrieve cashback payment information.
+        This endpoint allows retrieving information about cashback payments within a specified date range.
+      operationId: get_cashbackpayments_cashbackpayments_get
+      parameters:
+        - name: date_from
+          in: query
+          required: false
+          description: The start date of the date range to filter cashback payments.
+          schema:
+            type: string
+            title: Date From
+        - name: date_to
+          in: query
+          required: false
+          description: The end date of the date range to filter cashback payments.
+          schema:
+            type: string
+            title: Date To
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /transactions:
+    post:
+      tags:
+        - Transaction
+      summary: Add Multiple Transactions
+      description: |-
+        Add multiple transaction records.
+        This endpoint allows adding multiple transaction records to the system.
+      operationId: add_transactions_transactions_post
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TransBase'
+              title: Transactiond
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /activeoffers:
+    get:
+      tags:
+        - Offer
+      summary: Active Offers
+      description: Retrieve a list of active offers.
+      operationId: read_all_activeoffers_activeoffers_get
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            default: 'Bearer '
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CustomerBase:
+      properties:
+        customer_id:
+          type: string
+          title: Customer Id
+          default: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d
+        birthday:
+          type: string
+          format: date
+          title: Birthday
+        gender:
+          type: string
+          title: Gender
+          default: Male
+        location_id:
+          type: integer
+          title: Location Id
+          default: 1
+      type: object
+      required:
+        - birthday
+      title: CustomerBase
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TransBase:
+      properties:
+        transaction_id:
+          type: string
+          title: Transaction Id
+          default: b65cca2a-6809-11ee-8c99-0242ac120002
+        description:
+          type: string
+          title: Description
+          default: description
+        customer_id:
+          type: string
+          title: Customer Id
+          default: a8de52aa-49e7-4e5c-bb66-1c82ac1d
