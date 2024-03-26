@@ -4,11 +4,6 @@ info:
   version: 0.1.0
 servers:
   - url: https://readme.mthmr.com/
-securityDefinitions:
-  TokenAuth:
-    type: token
-    name: Bearer <Your_Token_here>
-    in: header
 paths:
   /gettoken:
     get:
@@ -53,8 +48,15 @@ paths:
       description: |-
         Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
       operationId: add_customers_customers__post
-      security:
-      - TokenAuth: []
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            example: 'Bearer '
+            title: Token
       requestBody:
         required: true
         content:
