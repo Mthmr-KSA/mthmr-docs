@@ -124,6 +124,7 @@ paths:
             type: string
             format: date
             title: Date From
+            example: YYYY-MM-DD
         - name: date_to
           in: query
           required: false
@@ -132,6 +133,7 @@ paths:
             type: string
             format: date
             title: Date To
+            example: YYYY-MM-DD
         - name: Token
           in: header
           required: false
