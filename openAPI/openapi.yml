@@ -4,6 +4,11 @@ info:
   version: 0.1.0
 servers:
   - url: https://readme.mthmr.com/
+securityDefinitions:
+  TokenAuth:
+    type: token
+    name: Bearer <Your_Token_here>
+    in: header
 paths:
   /gettoken:
     get:
@@ -284,8 +289,3 @@ components:
           title: Customer Id
           description: The unique identifier for the customer associated with the transaction.
           example: a8de52aa-49e7-4e5c-bb66-1c82ac1d
-securityDefinitions:
-  TokenAuth:
-    type: token
-    name: Bearer <Your_Token_here>
-    in: header
