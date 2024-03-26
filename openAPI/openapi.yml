@@ -48,15 +48,8 @@ paths:
       description: |-
         Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
       operationId: add_customers_customers__post
-      parameters:
-        - name: Token
-          in: header
-          required: false
-          description: The authentication token for accessing the API.
-          schema:
-            type: string
-            example: 'Bearer '
-            title: Token
+      security:
+      - TokenAuth: []
       requestBody:
         required: true
         content:
@@ -291,3 +284,8 @@ components:
           title: Customer Id
           description: The unique identifier for the customer associated with the transaction.
           example: a8de52aa-49e7-4e5c-bb66-1c82ac1d
+securityDefinitions:
+  TokenAuth:
+    type: token
+    name: Bearer <Your_Token_here>
+    in: header
