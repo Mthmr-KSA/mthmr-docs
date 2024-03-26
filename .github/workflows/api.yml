@@ -7,7 +7,7 @@ on:
       - 'openAPI/openapi.yml'
 
 jobs:  
-  sync-credit-core:
+  sync-readme-api-definition:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo

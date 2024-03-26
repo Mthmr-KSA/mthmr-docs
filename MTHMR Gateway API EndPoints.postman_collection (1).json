@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "2f9c566d-2373-429d-966a-06dd54238c99",
+		"name": "MTHMR Gateway API EndPoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11399118"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Save token to variable\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.collectionVariables.set(\"Token\", jsonData.Token);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "APPLICATION_ID",
+						"value": "{{applicationId}}",
+						"type": "text"
+					},
+					{
+						"key": "APPLICATION_KEY",
+						"value": "{{applicationKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{environmentUrl}}/gettoken",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"gettoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Customers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  [{\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d7\",\n    \"birthday\": \"1995-03-15\",\n    \"gender\": \"Male\",\n    \"location_id\": 1\n  },\n  {\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d27\",\n    \"birthday\": \"1983-05-01\",\n    \"gender\": \"Female\",\n    \"location_id\": 1\n  }]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/customers/",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transactions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"transaction_id\": \"b65cca2a-6809-11ee-8c99-0242ac120012\",\n    \"description\": \"description\",\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d\",\n    \"date\": \"2023-10-11T10:27:03.987662\",\n    \"merchant_id\": 523,\n    \"merchant_name\": \"Merhant Name\",\n    \"amount\": 100\n   },\n   {\n    \"transaction_id\": \"b65cca2a-6809-11ee-8c99-0242ac1200032\",\n    \"description\": \"description\",\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d\",\n    \"date\": \"2023-10-11T10:27:03.987662\",\n    \"merchant_id\": 523,\n    \"merchant_name\": \"Merhant Name\",\n    \"amount\": 150\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/transactions/",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transactions History",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"transaction_id\": \"b65cca2a-6809-11ee-8c99-0242ac12001\",\n    \"description\": \"description\",\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d\",\n    \"date\": \"2023-10-11T10:27:03.987662\",\n    \"merchant_id\": 523,\n    \"merchant_name\": \"Merhant Name\",\n    \"amount\": 100\n   },\n   {\n    \"transaction_id\": \"b65cca2a-6809-11ee-8c99-0242ac120003\",\n    \"description\": \"description\",\n    \"customer_id\": \"a8de52aa-49e7-4e5c-bb66-1c82ac1d551d\",\n    \"date\": \"2023-10-11T10:27:03.987662\",\n    \"merchant_id\": 523,\n    \"merchant_name\": \"Merhant Name\",\n    \"amount\": 150\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/transactions_history/",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"transactions_history",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/customers",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cashback Payments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/cashbackpayments",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"cashbackpayments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Active Offers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/activeoffers",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"activeoffers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "environmentUrl",
+			"value": "http://158.101.231.94:8009",
+			"type": "string"
+		},
+		{
+			"key": "applicationId",
+			"value": "lQRPMZvY9tnGVxXbg4T",
+			"type": "string"
+		},
+		{
+			"key": "applicationKey",
+			"value": "ly3LLRHDiFuxSHp4mEhqr5fXhb6CzIqPptCP6cRkK2LV5e2dEi",
+			"type": "string"
+		},
+		{
+			"key": "Token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

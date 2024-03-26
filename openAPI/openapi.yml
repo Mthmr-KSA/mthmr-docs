@@ -11,8 +11,7 @@ paths:
         - Authentication
       summary: Get Token
       description: |-
-        Retrieve a token for authentication.
-        This endpoint is used to obtain a token for accessing other endpoints.
+        Use this endpoint to obtain an authentication token for accessing other endpoints.
       operationId: get_gettoken_gettoken_get
       parameters:
         - name: APPLICATION-ID
@@ -47,8 +46,7 @@ paths:
         - Customer
       summary: Add Customers
       description: |-
-        Create one or more customer objects in MTHMR CashBack.
-        This endpoint allows adding new customer records to the system.
+        Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
       operationId: add_customers_customers__post
       parameters:
         - name: Token
@@ -58,6 +56,7 @@ paths:
           schema:
             type: string
             default: 'Bearer '
+            example: 'Bearer '
             title: Token
       requestBody:
         required: true
@@ -225,19 +224,28 @@ components:
         customer_id:
           type: string
           title: Customer Id
+          description: A unique identifier for the customer.
           default: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d
+          example: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d
         birthday:
           type: string
           format: date
           title: Birthday
+          description: The birthdate of the customer.
+          default: YYYY-MM-DD
+          example: YYYY-MM-DD
         gender:
           type: string
           title: Gender
+          description: The gender of the customer.
           default: Male
+          example: Male
         location_id:
           type: integer
           title: Location Id
+          description: An identifier for the location associated with the customer.
           default: 1
+          example: 1
       type: object
       required:
         - birthday
