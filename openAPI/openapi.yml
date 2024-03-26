@@ -195,7 +195,7 @@ paths:
       tags:
         - Offer
       summary: Active Offers
-      description: Retrieve a list of active offers.
+      description: This endpoint retrieves all active offers currently available in the system and returns the results in a formatted list. 
       operationId: read_all_activeoffers_activeoffers_get
       parameters:
         - name: Token
@@ -204,7 +204,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            default: 'Bearer '
+            example: 'Bearer '
             title: Token
       responses:
         '200':
