@@ -83,7 +83,7 @@ paths:
       tags:
         - Customer
       summary: Get Customers
-      description: Retrieve a list of customers.
+      description: This endpoint allows you to retrieve a list of all your registered customers.
       operationId: get_customers_customers_get
       parameters:
         - name: Token
@@ -93,6 +93,7 @@ paths:
           schema:
             type: string
             default: 'Bearer '
+            example: 'Bearer '
             title: Token
       responses:
         '200':
