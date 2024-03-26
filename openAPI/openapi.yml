@@ -113,23 +113,24 @@ paths:
         - Customer
       summary: Get Cashback Payments
       description: |-
-        Retrieve cashback payment information.
-        This endpoint allows retrieving information about cashback payments within a specified date range.
+        This endpoint is designed to retrieve detailed information about cashback payments that have been made within a specific date range. By specifying the start and end dates, you can easily access accurate payment data.
       operationId: get_cashbackpayments_cashbackpayments_get
       parameters:
         - name: date_from
           in: query
           required: false
-          description: The start date of the date range to filter cashback payments.
+          description: The start date for the date range you want to filter cashback payments.
           schema:
             type: string
+            format: date
             title: Date From
         - name: date_to
           in: query
           required: false
-          description: The end date of the date range to filter cashback payments.
+          description: The end date for the date range you want to filter cashback payments.
           schema:
             type: string
+            format: date
             title: Date To
         - name: Token
           in: header
