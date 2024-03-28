@@ -34,7 +34,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Token'
+                $ref: '#/components/schemas/GetTokenResponse'
         '422':
           description: Validation Error
           content:
@@ -72,7 +72,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema: 
+                $ref: '#/components/schemas/PostCustomerResponse'
         '422':
           description: Validation Error
           content:
@@ -221,13 +222,17 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    Token:
+    GetTokenResponse:
       type: object
       properties:
         Token:
           type: string
           description: The token  used to authenticate a user with the API.
           example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE2NTU2NDgsImlhdCA3MTcxMTY0OTY0OCwic3ViIjoibFFSUE2frtk5dG5HVnhYYmc0VHMifQ.W5SVuoeUI5PMBBcIJjBiaTVy1Snn1u61FeF291mQD7o
+    PostCustomerResponse:
+      type: string
+      description: A message indicating the number of customers added and updated.
+      example: "Customers: added 2, updated 0"
     CustomerBase:
       properties:
         customer_id:
