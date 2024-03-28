@@ -100,7 +100,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CustomerListResponse'
         '422':
           description: Validation Error
           content:
@@ -233,6 +234,28 @@ components:
       type: string
       description: A message indicating the number of customers added and updated.
       example: "Customers: added 2, updated 0"
+    CustomerResponseObject:
+      type: object
+      properties:
+        customer_id:
+          type: string
+          description: The unique identifier for the customer.
+          example: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d67
+        birthday:
+          type: string
+          format: date
+          description: The birthday of the customer.
+          example: 1995-03-15
+        gender:
+          type: string
+          description: The gender of the customer.
+          enum: [Male, Female]
+          example: Male
+    CustomerListResponse:
+      description: An array of objects with the customers.
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomerResponseObject'
     CustomerBase:
       properties:
         customer_id:
