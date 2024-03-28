@@ -216,6 +216,12 @@ paths:
           content:
             application/json:
               schema: {}
+        '404':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError404'
         '422':
           description: Validation Error
           content:
@@ -314,6 +320,13 @@ components:
       required:
         - birthday
       title: CustomerBase
+    NotFoundError404:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message indicating that resource was not found.
+          example: Not Found
     HTTPValidationError:
       properties:
         detail:
