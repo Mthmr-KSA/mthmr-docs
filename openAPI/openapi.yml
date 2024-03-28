@@ -148,7 +148,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CashbackPaymentsListResponse'
         '422':
           description: Validation Error
           content:
@@ -256,6 +257,36 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/CustomerResponseObject'
+    CashbackPaymentsResponseObject:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          description: The date of the cashback payment.
+          example: "2023-10-26"
+        customer_id:
+          type: string
+          description: The unique identifier for the customer.
+          example: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d234"
+        offer_id:
+          type: integer
+          description: The identifier of the offer associated with the cashback payment.
+          example: 203
+        sum:
+          type: number
+          format: float
+          description: The total amount of the cashback payment.
+          example: 330.0
+        count:
+          type: integer
+          description: The count of items in the cashback payment.
+          example: 10
+    CashbackPaymentsListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/CashbackPaymentsResponseObject'
+    
     CustomerBase:
       properties:
         customer_id:
