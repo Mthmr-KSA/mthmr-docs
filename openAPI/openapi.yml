@@ -187,7 +187,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CreateTransactionsResponse'
         '422':
           description: Validation Error
           content:
@@ -292,7 +293,31 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/CashbackPaymentsResponseObject'
-    
+    CreateTransactionsResponse:
+      type: object
+      properties:
+        payments:
+          type: array
+          description: List of created transactions
+          items:
+            type: object
+            properties:
+              transaction_id:
+                type: string
+                description: The ID of the transaction
+              cashback:
+                type: number
+                description: The cashback amount for the transaction
+              payment_date:
+                type: string
+                format: date-time
+                description: The date and time of the payment
+        errors:
+          type: array
+          description: List of errors, if any
+          items:
+            type: string
+            description: Description of the error
     CustomerBase:
       properties:
         customer_id:
