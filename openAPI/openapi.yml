@@ -3,7 +3,7 @@ info:
   title: MTHMR CashBack
   version: 0.1.0
 servers:
-  - url: https://readme.mthmr.com/
+  - url: https://stgapi-cashback.mthmr.com
 paths:
   /gettoken:
     get:
@@ -48,7 +48,7 @@ paths:
       summary: Add Customers
       description: |-
         Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
-      operationId: add_customers
+      operationId: add-customers
       parameters:
         - name: Token
           in: header
@@ -56,7 +56,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer '
+            example: 'Bearer <YOUR_TOKEN>'
             title: Token
       requestBody:
         required: true
@@ -85,7 +85,7 @@ paths:
         - Customer
       summary: Get Customers
       description: This endpoint allows you to retrieve a list of all your registered customers.
-      operationId: get_customers_customers_get
+      operationId: get-customers
       parameters:
         - name: Token
           in: header
@@ -93,7 +93,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer '
+            example: 'Bearer <YOUR_TOKEN>'
             title: Token
       responses:
         '200':
@@ -125,7 +125,7 @@ paths:
       summary: Get Cashback Payments
       description: |-
         This endpoint is designed to retrieve detailed information about cashback payments that have been made within a specific date range. By specifying the start and end dates, you can easily access accurate payment data.
-      operationId: get_cashbackpayments_cashbackpayments_get
+      operationId: get-cashback-payments
       parameters:
         - name: date_from
           in: query
@@ -151,7 +151,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer '
+            example: 'Bearer <YOUR_TOKEN>'
             title: Token
       responses:
         '200':
@@ -184,7 +184,7 @@ paths:
       summary: Add Multiple Transactions
       description: |-
         This endpoint enables the addition of multiple transaction records to the system. It is ideal for adding a large number of transactions at once, saving time and effort.
-      operationId: add_transactions_transactions_post
+      operationId: add-transactions
       parameters:
         - name: Token
           in: header
@@ -192,7 +192,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer '
+            example: 'Bearer <YOUR_TOKEN>'
             title: Token
       requestBody:
         required: true
@@ -244,9 +244,9 @@ paths:
     get:
       tags:
         - Offer
-      summary: Active Offers
-      description: This endpoint retrieves all active offers currently available in the system and returns the results in a formatted list. 
-      operationId: read_all_activeoffers_activeoffers_get
+      summary: Get All Active Offers
+      description: This endpoint retrieves all active offers currently available in the system and returns a formatted list. 
+      operationId: get-all-offers
       parameters:
         - name: Token
           in: header
@@ -254,7 +254,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer '
+            example: 'Bearer <YOUR_TOKEN>'
             title: Token
       responses:
         '200':
