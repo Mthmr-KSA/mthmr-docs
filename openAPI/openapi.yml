@@ -191,7 +191,7 @@ paths:
                 $ref: '#/components/schemas/CreateTransactionsResponse'
               examples:
                 example1:
-                  summary: Multiple transactions response
+                  summary: Success
                   value:
                     payments:
                       - transaction_id: b65cca2a-6809-11ee-8c99-0242ac1200169
