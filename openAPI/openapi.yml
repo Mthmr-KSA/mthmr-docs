@@ -199,18 +199,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateTransactionsResponse'
-              examples:
-                example1:
-                  summary: Success
-                  value:
-                    payments:
-                      - transaction_id: b65cca2a-6809-11ee-8c99-0242ac1200169
-                        cashback: 33.0
-                        payment_date: '2024-03-11T10:27:03.987662'
-                      - transaction_id: b65cca2a-6809-11ee-8c99-0242ac12000322790
-                        cashback: 49.5
-                        payment_date: '2024-03-26T10:27:03.987662'
-                    errors: []
+              example:
+                payments:
+                  - transaction_id: b65cca2a-6809-11ee-8c99-0242ac1200169
+                    cashback: 33.0
+                    payment_date: '2024-03-11T10:27:03.987662'
+                  - transaction_id: b65cca2a-6809-11ee-8c99-0242ac12000322790
+                    cashback: 49.5
+                    payment_date: '2024-03-26T10:27:03.987662'
+                errors: []
         '422':
           description: Validation Error
           content:
