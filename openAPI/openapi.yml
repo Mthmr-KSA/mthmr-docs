@@ -247,7 +247,7 @@ paths:
       summary: Add Transactions History
       description: |-
         MISSING DESCRIPTION
-      operationId: add-transactions
+      operationId: add-transactions-history
       parameters:
         - name: Token
           in: header
