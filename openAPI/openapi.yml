@@ -240,6 +240,67 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /transactions-history:
+    post:
+      tags:
+        - Transaction
+      summary: Add Multiple Transactions
+      description: |-
+        This endpoint enables the addition of multiple transaction records to the system. It is ideal for adding a large number of transactions at once, saving time and effort.
+      operationId: add-transactions
+      parameters:
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            example: 'Bearer <YOUR_TOKEN>'
+            title: Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TransBase'
+              title: Transactiond
+            example:
+              - transaction_id: a55cca2a-6809-11ee-8c99-0242ac1200551
+                description: description
+                customer_id: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272
+                date: "2024-02-25T10:27:03.987662"
+                merchant_name: MTHMR
+                location: Riyadh
+                amount": 100
+              - transaction_id: e65cca2a-6809-11ee-8c99-0242ac120005531
+                description: description
+                customer_id: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272
+                date: "2024-03-11T10:27:03.987662"
+                merchant_name: MTHMR
+                location: Riyadh
+                amount": 150
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTransactionsHistoryResponse'
+              example:
+                payments:
+                  - transaction_id: a55cca2a-6809-11ee-8c99-0242ac1200551
+                    cashback: 0
+                  - transaction_id: e65cca2a-6809-11ee-8c99-0242ac120005531
+                    cashback: 0
+                errors: []
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /activeoffers:
     get:
       tags:
@@ -383,6 +444,27 @@ components:
                 type: string
                 format: date-time
                 description: The date and time of the payment
+        errors:
+          type: array
+          description: List of errors, if any
+          items:
+            type: string
+            description: Description of the error
+    CreateTransactionsHistoryResponse:
+      type: object
+      properties:
+        payments:
+          type: array
+          description: List of created transactions
+          items:
+            type: object
+            properties:
+              transaction_id:
+                type: string
+                description: The ID of the transaction
+              cashback:
+                type: number
+                description: The cashback amount for the transaction
         errors:
           type: array
           description: List of errors, if any
