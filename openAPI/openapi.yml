@@ -160,6 +160,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CashbackPaymentsListResponse'
+              example:
+                - date: "2024-03-11"
+                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                  offer_id: 203
+                  sum: 33.0
+                  count: 1
+                - date: "2024-03-26"
+                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                  offer_id: 203
+                  sum: 49.5
+                  count: 1
         '422':
           description: Validation Error
           content:
