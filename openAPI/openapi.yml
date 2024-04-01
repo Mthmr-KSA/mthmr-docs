@@ -12,7 +12,7 @@ paths:
       summary: Get Token
       description: |-
         Use this endpoint to obtain an authentication token for accessing other endpoints.
-      operationId: get_gettoken_gettoken_get
+      operationId: get-token
       parameters:
         - name: APPLICATION-ID
           in: header
@@ -48,7 +48,7 @@ paths:
       summary: Add Customers
       description: |-
         Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
-      operationId: add_customers_customers__post
+      operationId: add_customers
       parameters:
         - name: Token
           in: header
@@ -312,7 +312,7 @@ components:
     PostCustomerResponse:
       type: string
       description: A message indicating the number of customers added and updated.
-      example: "Customers: added 2, updated 0"
+      example: "Customers: added 1, updated 0"
     CustomerResponseObject:
       type: object
       properties:
