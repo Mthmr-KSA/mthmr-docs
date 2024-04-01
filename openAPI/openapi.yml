@@ -203,6 +203,21 @@ paths:
               items:
                 $ref: '#/components/schemas/TransBase'
               title: Transactiond
+            example:
+              - transaction_id: "b65cca2a-6809-11ee-8c99-0242ac1200169"
+                description: description
+                customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                date: "2024-02-25T10:27:03.987662"
+                merchant_name: MTHMR
+                location: Riyadh
+                amount": 100
+              - transaction_id: "b65cca2a-6809-11ee-8c99-0242ac12000322790"
+                description: description
+                customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                date: "2024-03-11T10:27:03.987662"
+                merchant_name: MTHMR
+                location: Riyadh
+                amount": 150
       responses:
         '200':
           description: Successful Response
