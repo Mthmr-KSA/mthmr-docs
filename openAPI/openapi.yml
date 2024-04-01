@@ -102,6 +102,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomerListResponse'
+              example:
+                - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d2"
+                  birthday: "1995-03-15"
+                  gender: Female
+                - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d67"
+                  birthday: "1990-12-01"
+                  gender: Male
+                - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d234"
+                  birthday: "1984-07-22"
+                  gender: Female
         '422':
           description: Validation Error
           content:
