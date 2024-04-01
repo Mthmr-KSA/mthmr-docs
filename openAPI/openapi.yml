@@ -244,9 +244,9 @@ paths:
     post:
       tags:
         - Transaction
-      summary: Add Multiple Transactions
+      summary: Add Transactions History
       description: |-
-        This endpoint enables the addition of multiple transaction records to the system. It is ideal for adding a large number of transactions at once, saving time and effort.
+        MISSING DESCRIPTION
       operationId: add-transactions
       parameters:
         - name: Token
