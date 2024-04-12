@@ -246,7 +246,7 @@ paths:
         - Transaction
       summary: Add Transactions History
       description: |-
-        MISSING DESCRIPTION
+        This endpoint allows you to add historical transaction data for that particular customer. This data can be later used to qualify the customer for offers that better suit him
       operationId: add-transactions-history
       parameters:
         - name: Token
@@ -419,7 +419,7 @@ components:
           example: 330.0
         count:
           type: integer
-          description: The count of items in the cashback payment.
+          description: The number of transactions for this specific date, offer, and client.
           example: 10
     CashbackPaymentsListResponse:
       type: array
@@ -491,10 +491,10 @@ components:
             description: URL of the merchant's logo.
           warranty:
             type: integer
-            description: Warranty period of the offer.
+            description: Refers to the days the payout is delayed, as customers can return the purchase until the warranty lasts.
           discount:
             type: number
-            description: Discount value.
+            description: The discount percentage of the offer.
           valid_from:
             type: string
             format: date-time
