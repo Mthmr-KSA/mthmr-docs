@@ -18,17 +18,20 @@
 
     /* -------------------------------------------- HEADER SECTION -------------------------------------------- */
     .hero {
-      background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/hero_bg.png');
+      background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/banner-full.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       flex-shrink: 0;
+      height: 358px;
     }
 
     .header_container {
+      display: flex;
       margin: 0 auto 0 auto;
       max-width: var(--container-lg);
       padding: 0 20px;
+      gap: 25%;
     }
 
     .header_container .header_content {
@@ -40,18 +43,18 @@
     }
 
     .header_container .hero_title h1 {
-      color: var(--primary-6);
+      margin: 50px 0 0;
+      width: 545px;
+      color: #FFF;
       font-family: Inter;
-      font-size: 43.211px;
+      font-size: 55px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      margin: 50px 0 0;
-      width: 590px;
     }
 
     .header_container .hero_content p {
-      color: var(--black);
+      color: #FFF;
       font-family: Inter;
       font-size: 18px;
       font-style: normal;
@@ -68,35 +71,36 @@
     }
 
     .header_container .hero_content .btn_container a {
+      color: #FFF;
       flex-shrink: 0;
       border-radius: 6px;
       font-family: Inter;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
       text-decoration: none;
       padding: 12px 40px;
       transition: all 0.3s ease;
+      font-size: 19.608px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
 
     .header_container .hero_content .btn_container .hero_btn1 {
-      background: var(--primary-1);
-      color: var(--white);
+      border-radius: 6px;
+      background: #5CD08B;
       border: 1px solid transparent;
     }
 
-    /* .header_container .hero_content .btn_container .hero_btn2 {
-      border: 1px solid var(--primary-7);
-      color: var(--primary-1);
-      background: var(--white);
-    } */
-
     .header_container .hero_content .btn_container a:hover {
-      background: var(--primary-6);
-      border-color: var(--primary-1);
-      color: var(--white);
+      background: #5cd08ac1;
       box-shadow: 0 10px 20px #282a3017;
+    }
+
+    .header_container .img_container {
+      max-height: 358px;
+    }
+
+    .header_container .img_container img {
+      max-height: 358px;
     }
 
     /* -------------------------------------------- CARDS SECTION -------------------------------------------- */
@@ -232,6 +236,7 @@
     @media only screen and (max-width: 1210px) {
       .header_container {
         margin: 0 0 0 40px;
+        gap: 10%;
       }
 
       .main_container {
@@ -276,6 +281,10 @@
     }
 
     @media only screen and (max-width: 860px) {
+      .header_container {
+        gap: 5%;
+      }
+
       .header_container .hero_title h1 {
         width: 380px;
       }
@@ -286,6 +295,14 @@
     }
 
     @media only screen and (max-width: 768px) {
+      .header_container .img_container {
+        margin-top: 20px;
+      }
+
+      .header_container .img_container img {
+        width: 200px;
+      }
+
       .header_container .hero_title h1 {
         margin: 40px 0 0;
       }
@@ -301,8 +318,8 @@
     }
 
     @media only screen and (max-width: 691px) {
-      .hero {
-        background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/hero_bg_small.png');
+      .header_container {
+        gap: 0;
       }
 
       .header_container .hero_title h1 {
@@ -333,6 +350,24 @@
 
       .main_container .card_container {
         flex-direction: column;
+      }
+    }
+
+    @media only screen and (max-width: 640px) {
+      .header_container .img_container {
+        margin-right: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 630px) {
+      .hero {
+        height: 258px;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .header_container .img_container {
+        display: none;
       }
     }
 
@@ -367,7 +402,11 @@
       }
     }
 
-    @media only screen and (max-width: 310px) {
+    @media only screen and (max-width: 313px) {
+      .hero {
+        height: fit-content;
+      }
+
       .header_container .hero_content p {
         width: 80%;
       }
@@ -479,17 +518,19 @@
     <div class="header_container">
       <div class="header_content">
         <div class="hero_title">
-          <h1>deets Documentation</h1>
+          <h1>Mthmr Cashback</h1>
         </div>
         <div class="hero_content">
           <p>
-            Explore our guides and examples to integrate deets in order to overcome challenges in legacy payment systems, including regulatory compliance and merchant onboarding.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <div class="btn_container">
             <a class="hero_btn1" href="docs">Get Started</a>
-            <!-- <a class="hero_btn2" href="docs">Get Started</a> -->
           </div>
         </div>
+      </div>
+      <div class="img_container">
+        <img src="https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/smartphone.png" alt="">
       </div>
     </div>
   </header>
