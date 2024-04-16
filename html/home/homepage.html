@@ -53,6 +53,11 @@
       line-height: normal;
     }
 
+    .header_container .hero_title svg {
+      position: relative;
+      top: -10px;
+    }
+
     .header_container .hero_content p {
       color: #FFF;
       font-family: Inter;
@@ -215,6 +220,7 @@
         margin: 0 0 0 100px;
         padding: 0;
       }
+
       .main_container {
         margin: 40px 100px;
         padding: 0;
@@ -243,11 +249,6 @@
         margin: 40px 40px;
       }
 
-      .header_container .hero_title h1 {
-        font-size: 36px;
-        width: 500px;
-      }
-
       .header_container .hero_content p {
         font-size: 16px;
         width: 500px;
@@ -255,10 +256,10 @@
     }
 
     @media only screen and (max-width: 1040px) {
-      .header_container .hero_title h1 {
+      /* .header_container .hero_title h1 {
         font-size: 32px;
         width: 420px;
-      }
+      } */
 
       .header_container .hero_content p {
         font-size: 14px;
@@ -286,15 +287,26 @@
       }
 
       .header_container .hero_title h1 {
-        width: 380px;
+        width: 300px;
+        font-size: 35px;
+      }
+
+      .header_container .hero_title svg {
+        width: 300px;
+        font-size: 35px;
       }
 
       .header_container .hero_content p {
         width: 380px;
+        margin-top: 14px;
       }
     }
 
     @media only screen and (max-width: 768px) {
+      .hero {
+        height: 350px;
+      }
+
       .header_container .img_container {
         margin-top: 20px;
       }
@@ -324,7 +336,7 @@
 
       .header_container .hero_title h1 {
         margin: 30px 0 0;
-        font-size: 24px;
+        /* font-size: 24px; */
       }
 
       .header_container .hero_content p {
@@ -359,13 +371,11 @@
       }
     }
 
-    @media only screen and (max-width: 630px) {
-      .hero {
-        height: 258px;
-      }
-    }
-
     @media only screen and (max-width: 600px) {
+      .hero {
+        height: 300px;
+      }
+
       .header_container .img_container {
         display: none;
       }
@@ -380,8 +390,12 @@
     @media only screen and (max-width: 441px) {
       .header_container .hero_title h1 {
         margin: 25px 0 0;
-        font-size: 22px;
+        font-size: 27px;
         width: 80%;
+      }
+
+      .header_container .hero_title svg {
+        display: none;
       }
 
       .header_container .hero_content p {
@@ -520,12 +534,16 @@
         <div class="hero_title">
           <h1>Mthmr Cashback</h1>
           <svg xmlns="http://www.w3.org/2000/svg" width="451" height="27" viewBox="0 0 451 27" fill="none">
-            <path d="M3.14258 15.2734C102.66 6.52708 330.992 -6.12735 448.185 13.2254M12.0927 24.2353C70.4474 13.3671 237.412 -5.23644 438.432 7.29504" stroke="#5CD08B" stroke-width="5" stroke-linecap="round"/>
+            <path
+              d="M3.14258 15.2734C102.66 6.52708 330.992 -6.12735 448.185 13.2254M12.0927 24.2353C70.4474 13.3671 237.412 -5.23644 438.432 7.29504"
+              stroke="#5CD08B" stroke-width="5" stroke-linecap="round" />
           </svg>
         </div>
         <div class="hero_content">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
           </p>
           <div class="btn_container">
             <a class="hero_btn1" href="docs">Get Started</a>
@@ -533,7 +551,8 @@
         </div>
       </div>
       <div class="img_container">
-        <img src="https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/smartphone.png" alt="">
+        <img src="https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/smartphone.png"
+          alt="">
       </div>
     </div>
   </header>
