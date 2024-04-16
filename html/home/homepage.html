@@ -16,6 +16,10 @@
       width: 100% !important;
     }
 
+    body {
+      background-color: #F6F6F6;
+    }
+
     /* -------------------------------------------- HEADER SECTION -------------------------------------------- */
     .hero {
       background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/home-banner.png');
@@ -131,15 +135,16 @@
     }
 
     .main_container .card {
-      border-radius: 6px;
+      border-radius: 22px;
       border: 1px solid var(--primary-7);
-      background: #F3F2F8;
+      background: #FFF;
       display: inline-flex;
       flex-direction: column;
       align-items: flex-start;
       flex-shrink: 0;
       align-self: stretch !important;
       transition: all 0.3s ease, border 0.1s ease;
+      width: 529px;
     }
 
     .main_container .card:hover {
@@ -149,45 +154,29 @@
       transform: translateY(-2px);
     }
 
-    .main_container .large_card {
-      flex: 3;
-    }
-
-    /* .main_container .large_card .card_image {
-      width: 60%;
-    } */
-
-    .main_container .small_card {
-      flex: 2;
-    }
-
-    /* .main_container .small_card .card_image {
-      width: 30%;
-    } */
-
     .main_container .card_image {
       height: 120px;
       flex-shrink: 0;
       width: 100% !important;
       background-position: center;
       background-size: cover;
-      border-radius: 6px 6px 0 0;
+      border-radius: 22px 22px 0 0;
     }
 
     .main_container .image1 {
-      background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/card1.png')
+      background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/card1.png')
     }
 
     .main_container .image2 {
-      background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/card2.png')
+      background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/card2.png')
     }
 
     .main_container .image3 {
-      background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/card3.png')
+      background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/card3.png')
     }
 
     .main_container .image4 {
-      background-image: url('https://raw.githubusercontent.com/writechoiceorg/digitz-docs/main/home/images/card4.png')
+      background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/home/images/card4.png')
     }
 
     .main_container .card_container .card_text {
@@ -252,6 +241,10 @@
       .header_container .hero_content p {
         font-size: 16px;
         width: 500px;
+      }
+
+      .main_container .card {
+        width: 45%;
       }
     }
 
@@ -363,6 +356,11 @@
       .main_container .card_container {
         flex-direction: column;
       }
+
+      .main_container .card {
+        width: 90%;
+        margin: auto;
+      }
     }
 
     @media only screen and (max-width: 640px) {
@@ -427,6 +425,10 @@
     }
 
     @media (prefers-color-scheme: dark) {
+      [data-color-mode="system"] body {
+        background-color: var(--gray15);
+      }
+
       [data-color-mode="system"] .header_container .header_content h1 {
         color: var(--primary-3) !important;
       }
@@ -474,6 +476,10 @@
       [data-color-mode="system"] .card_container .card p {
         color: #dedede;
       }
+    }
+
+    [data-color-mode="dark"] body {
+      background-color: var(--gray15);
     }
 
     [data-color-mode="dark"] .header_container .header_content h1 {
@@ -562,16 +568,18 @@
         <div class="card_image image1">
         </div>
         <div class="card_text">
-          <h3>Get Started</h3>
-          <p>Learn more about how deets can help you with tokenization, PCI compliance, and merchant onboarding.</p>
+          <h3>What is Mthmr Cashback?</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
         </div>
       </div>
       <div class="card small_card" onclick="window.location='docs/deets-iframe'">
         <div class="card_image image2">
         </div>
         <div class="card_text">
-          <h3>Integration</h3>
-          <p>Learn how to integrate deets into your solution following just a few steps.</p>
+          <h3>Get Started</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
         </div>
       </div>
     </section>
@@ -581,16 +589,18 @@
         <div class="card_image image3">
         </div>
         <div class="card_text">
-          <h3>Payment Management</h3>
-          <p>Manage your whole payments ecosystem using MyIQ's intuitive interface. </p>
+          <h3>Integrate via SDK</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
         </div>
       </div>
       <div class="card large_card" onclick="window.location='docs/myvalet'">
         <div class="card_image image4">
         </div>
         <div class="card_text">
-          <h3>Merchant Onboarding</h3>
-          <p>Quickly onboarding merchants by using the MyVale Merchant Account Creator (MAC).</p>
+          <h3>API Reference</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
         </div>
       </div>
     </section>
