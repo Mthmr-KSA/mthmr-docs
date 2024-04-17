@@ -209,15 +209,19 @@ paths:
                 customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
                 date: "2024-02-25T10:27:03.987662"
                 merchant_name: MTHMR
-                location: Riyadh
-                amount": 100
+                location:
+                  city: Riyadh
+                  country: Saudi Arabia
+                amount: 100
               - transaction_id: "b65cca2a-6809-11ee-8c99-0242ac12000322790"
                 description: description
                 customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
                 date: "2024-03-11T10:27:03.987662"
                 merchant_name: MTHMR
-                location: Riyadh
-                amount": 150
+                location:
+                  city: Riyadh
+                  country: Saudi Arabia
+                amount: 150
       responses:
         '200':
           description: Successful Response
@@ -272,14 +276,18 @@ paths:
                 customer_id: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272
                 date: "2024-02-25T10:27:03.987662"
                 merchant_name: MTHMR
-                location: Riyadh
+                location:
+                  city: Riyadh
+                  country: Saudi Arabia
                 amount": 100
               - transaction_id: e65cca2a-6809-11ee-8c99-0242ac120005531
                 description: description
                 customer_id: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272
                 date: "2024-03-11T10:27:03.987662"
                 merchant_name: MTHMR
-                location: Riyadh
+                location:
+                  city: Riyadh
+                  country: Saudi Arabia
                 amount": 150
       responses:
         '200':
@@ -521,14 +529,14 @@ components:
           title: Gender
           description: The gender of the customer.
           example: Male
-        location_id:
-          type: integer
-          title: Location Id
-          description: An identifier for the location associated with the customer.
-          example: 1
+        location:
+          $ref: '#/components/schemas/LocationBase'
       type: object
       required:
         - birthday
+        - customer_id
+        - gender
+        - location
       title: CustomerBase
     NotFoundError404:
       type: object
@@ -581,3 +589,39 @@ components:
           title: Customer Id
           description: The unique identifier for the customer associated with the transaction.
           example: a8de52aa-49e7-4e5c-bb66-1c82ac1d
+        date:
+          type: string
+          format: date-time
+          title: Date
+          description: The date and time when the transaction was made.
+          example: '2024-04-17T13:45:00Z'
+        amount:
+          type: number
+          title: Amount
+          description: The monetary value of the transaction.
+          example: 150
+        merchant_name:
+          type: string
+          title: Merchant Name
+          description: The name of the merchant where the transaction occurred.
+          example: MTHMR
+        location:
+          $ref: '#/components/schemas/LocationBase'
+    LocationBase:
+      type: object
+      title: Location
+      description: An object containing details about the customer's location.
+      properties:
+        country:
+          type: string
+          title: Country
+          description: The country where the customer resides.
+          example: Saudi Arabia
+        city:
+          type: string
+          title: City
+          description: The city where the customer resides.
+          example: Riyadh
+      required:
+        - country
+        - city
