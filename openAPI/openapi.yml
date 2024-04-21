@@ -204,6 +204,11 @@ paths:
                 $ref: '#/components/schemas/TransBase'
               title: Transactiond
             example:
+              - event_id:
+                type: string
+                title: Event Id
+                description: The token to be used with your webhook.
+                example: fc56d1b3-68d5-45f2-bce9-0c433c9af20a
               - transaction_id: "b65cca2a-6809-11ee-8c99-0242ac1200169"
                 description: description
                 customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
@@ -577,11 +582,6 @@ components:
         - detail
     TransBase:
       properties:
-        event_id:
-          type: string
-          title: Event Id
-          description: The token to be used with your webhook.
-          example: fc56d1b3-68d5-45f2-bce9-0c433c9af20a
         transaction_id:
           type: string
           title: Transaction Id
