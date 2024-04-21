@@ -230,7 +230,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateTransactionsResponse'
               example:
-                  - events_id: "fc56d1b3-68d5-45f2-bce9-0c433c9af20a"
+                  - events_id: fc56d1b3-68d5-45f2-bce9-0c433c9af20a
                 payments:
                   - transaction_id: b65cca2a-6809-11ee-8c99-0242ac1200169
                     cashback: 33.0
