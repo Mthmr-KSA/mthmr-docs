@@ -436,6 +436,9 @@ components:
     CreateTransactionsResponse:
       type: object
       properties:
+        events_id: 
+          type: string
+          description: Token to be used in your webhook
         payments:
           type: array
           description: List of created transactions
@@ -574,6 +577,11 @@ components:
         - detail
     TransBase:
       properties:
+        event_id:
+          type: string
+          title: Event Id
+          description: The token to be used with your webhook.
+          example: fc56d1b3-68d5-45f2-bce9-0c433c9af20a
         transaction_id:
           type: string
           title: Transaction Id
