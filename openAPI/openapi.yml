@@ -303,7 +303,7 @@ paths:
                     cashback: 0
                   - transaction_id: e65cca2a-6809-11ee-8c99-0242ac120005531
                     cashback: 0
-                errors: []
+              errors: []
         '422':
           description: Validation Error
           content:
