@@ -127,65 +127,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /cashback-payments/:
-    get:
-      tags:
-        - Cashback
-      summary: Get Cashback Payments
-      description: |-
-        This endpoint is designed to retrieve detailed information about cashback payments that have been made within a specific date range. By specifying the start and end dates, you can easily access accurate payment data.
-      operationId: get-cashback-payments
-      parameters:
-        - name: date_from
-          in: query
-          required: false
-          description: The start date for the date range you want to filter cashback payments.
-          schema:
-            type: string
-            format: date
-            title: Date From
-            example: YYYY-MM-DD
-        - name: date_to
-          in: query
-          required: false
-          description: The end date for the date range you want to filter cashback payments.
-          schema:
-            type: string
-            format: date
-            title: Date To
-            example: YYYY-MM-DD
-        - name: Token
-          in: header
-          required: false
-          description: The authentication token for accessing the API.
-          schema:
-            type: string
-            example: '<YOUR_TOKEN>'
-            title: Token
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CashbackPaymentsListResponse'
-              example:
-                - date: "2024-03-11"
-                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
-                  offer_id: 203
-                  sum: 33.0
-                  count: 1
-                - date: "2024-03-26"
-                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
-                  offer_id: 203
-                  sum: 49.5
-                  count: 1
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /transactions:
     post:
       tags:
@@ -308,6 +249,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /cashback-payments:
+    get:
+      tags:
+        - Cashbacks
+      summary: Get Cashback Payments
+      description: |-
+        This endpoint is designed to retrieve detailed information about cashback payments that have been made within a specific date range. By specifying the start and end dates, you can easily access accurate payment data.
+      operationId: get-cashback-payments
+      parameters:
+        - name: date_from
+          in: query
+          required: false
+          description: The start date for the date range you want to filter cashback payments.
+          schema:
+            type: string
+            format: date
+            title: Date From
+            example: YYYY-MM-DD
+        - name: date_to
+          in: query
+          required: false
+          description: The end date for the date range you want to filter cashback payments.
+          schema:
+            type: string
+            format: date
+            title: Date To
+            example: YYYY-MM-DD
+        - name: Token
+          in: header
+          required: false
+          description: The authentication token for accessing the API.
+          schema:
+            type: string
+            example: '<YOUR_TOKEN>'
+            title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashbackPaymentsListResponse'
+              example:
+                - date: "2024-03-11"
+                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                  offer_id: 203
+                  sum: 33.0
+                  count: 1
+                - date: "2024-03-26"
+                  customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
+                  offer_id: 203
+                  sum: 49.5
+                  count: 1
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'              
   /active-offers:
     get:
       tags:
