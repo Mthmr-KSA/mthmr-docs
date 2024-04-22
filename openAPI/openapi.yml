@@ -231,14 +231,14 @@ paths:
                 $ref: '#/components/schemas/CreateTransactionsResponse'
               example:
                   - event_id: fc56d1b3-68d5-45f2-bce9-0c433c9af20a
-                payments:
+                    payments:
                   - transaction_id: b65cca2a-6809-11ee-8c99-0242ac1200169
                     cashback: 33.0
                     payment_date: '2024-03-11T10:27:03.987662'
                   - transaction_id: b65cca2a-6809-11ee-8c99-0242ac12000322790
                     cashback: 49.5
                     payment_date: '2024-03-26T10:27:03.987662'
-                errors: []
+              errors: []
         '422':
           description: Validation Error
           content:
