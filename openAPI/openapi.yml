@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
-  title: MTHMR CashBack
+  title: Mthmr Cashback
   version: 0.1.0
 servers:
-  - url: https://stgapi-cashback.mthmr.com
+  - url: https://sandbox-api.cashback.mthmr.com/
 paths:
   /get-token:
     get:
@@ -47,7 +47,7 @@ paths:
         - Customer
       summary: Add Customers
       description: |-
-        Use this endpoint to create new customer records in MTHMR CashBack, allowing you to add one or more customer objects to the system.
+        Use this endpoint to create new customer records in Mthmr Cashback, allowing you to add one or more customer objects to the system.
       operationId: add-customers
       parameters:
         - name: Token
@@ -56,7 +56,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       requestBody:
         required: true
@@ -93,7 +93,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       responses:
         '200':
@@ -127,10 +127,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /cashback-payments:
+  /cashback-payments/:
     get:
       tags:
-        - Customer
+        - Cashback
       summary: Get Cashback Payments
       description: |-
         This endpoint is designed to retrieve detailed information about cashback payments that have been made within a specific date range. By specifying the start and end dates, you can easily access accurate payment data.
@@ -160,7 +160,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       responses:
         '200':
@@ -190,9 +190,9 @@ paths:
     post:
       tags:
         - Transaction
-      summary: Add Multiple Transactions
+      summary: Add Transactions
       description: |-
-        This endpoint enables the addition of multiple transaction records to the system. It is ideal for adding a large number of transactions at once, saving time and effort.
+        This endpoint enables the addition of one or multiple transaction records to the system. It is ideal for adding a large number of transactions at once, saving time and effort. It will return a token  which can be used to receive the transactions' cashback record via webhook.
       operationId: add-transactions
       parameters:
         - name: Token
@@ -201,7 +201,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       requestBody:
         required: true
@@ -252,7 +252,7 @@ paths:
         - Transaction
       summary: Add Transactions History
       description: |-
-        This endpoint allows you to add historical transaction data for that particular customer. This data can be later used to qualify the customer for offers that better suit him
+        This endpoint allows you to add historical transaction data for that particular customer. This data can be later used to qualify the customer for offers that better suit him.
       operationId: add-transactions-history
       parameters:
         - name: Token
@@ -261,7 +261,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       requestBody:
         required: true
@@ -322,7 +322,7 @@ paths:
           description: The authentication token for accessing the API.
           schema:
             type: string
-            example: 'Bearer <YOUR_TOKEN>'
+            example: '<YOUR_TOKEN>'
             title: Token
       responses:
         '200':
@@ -375,7 +375,7 @@ components:
       properties:
         Token:
           type: string
-          description: The token  used to authenticate a user with the API.
+          description: The token used to authenticate a user with the API.
           example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE2NTU2NDgsImlhdCA3MTcxMTY0OTY0OCwic3ViIjoibFFSUE2frtk5dG5HVnhYYmc0VHMifQ.W5SVuoeUI5PMBBcIJjBiaTVy1Snn1u61FeF291mQD7o
     PostCustomerResponse:
       type: string
