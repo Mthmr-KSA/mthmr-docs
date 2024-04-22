@@ -5,7 +5,7 @@ info:
 servers:
   - url: https://stgapi-cashback.mthmr.com
 paths:
-  /gettoken:
+  /get-token:
     get:
       tags:
         - Authentication
@@ -106,19 +106,28 @@ paths:
                 - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d2"
                   birthday: "1995-03-15"
                   gender: Female
+                  location: 
+                    country: KSA
+                    city: Riyadh
                 - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d67"
                   birthday: "1990-12-01"
                   gender: Male
+                  location: 
+                    country: KSA
+                    city: Riyadh
                 - customer_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d234"
                   birthday: "1984-07-22"
                   gender: Female
+                  location: 
+                    country: KSA
+                    city: Riyadh
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /cashbackpayments:
+  /cashback-payments:
     get:
       tags:
         - Customer
@@ -231,19 +240,6 @@ paths:
                 $ref: '#/components/schemas/CreateTransactionsResponse'
               example:
                 event_id: "fc56d1b3-68d5-45f2-bce9-0c433c9af20a"
-                payments:
-                  - transaction_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d272"
-                    cashback: 1.2
-                    payment_date: "2024-03-11"
-                  - transaction_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d273"
-                    cashback: 1.3
-                    payment_date: "2024-03-12"
-                  - transaction_id: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d274"
-                    cashback: 1.4
-                    payment_date: "2024-03-13"
-                errors:
-                  - Offer does not exist in transaction: "b65cca2a-6809-11ee-8c99-0242ac1200169"
-                  - Transaction exists: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d278"
         '422':
           description: Validation Error
           content:
@@ -302,15 +298,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateTransactionsHistoryResponse'
-              example:
-                event_id: "fc56d1b3-68d5-45f2-bce9-0c433c9af20a"
-                payments:
-                  - transaction_id: "a55cca2a-6809-11ee-8c99-0242ac1200551"
-                    cashback: 1.2
-                    payment_date: "2024-03-11"
-                  - transaction_id: "e65cca2a-6809-11ee-8c99-0242ac120005531"
-                    cashback: 1.3
-                    payment_date: "2024-03-12"
+              example:                
                 errors:
                   - Offer does not exist in transaction: "b65cca2a-6809-11ee-8c99-0242ac1200169"
                   - Transaction exists: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d278"
@@ -320,7 +308,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /activeoffers:
+  /active-offers:
     get:
       tags:
         - Offer
@@ -450,43 +438,9 @@ components:
         event_id: 
           type: string
           description: Token to be used in your webhooks
-        payments:
-          type: array
-          description: List of created transactions
-          items:
-            type: object
-            properties:
-              transaction_id:
-                type: string
-                description: The ID of the transaction
-              cashback:
-                type: number
-                description: The cashback amount for the transaction
-              payment_date:
-                type: string
-                format: date-time
-                description: The date and time of the payment
-        errors:
-          type: array
-          description: List of errors, if any
-          items:
-            type: string
-            description: Description of the error
     CreateTransactionsHistoryResponse:
       type: object
       properties:
-        payments:
-          type: array
-          description: List of created transactions
-          items:
-            type: object
-            properties:
-              transaction_id:
-                type: string
-                description: The ID of the transaction
-              cashback:
-                type: number
-                description: The cashback amount for the transaction
         errors:
           type: array
           description: List of errors, if any
