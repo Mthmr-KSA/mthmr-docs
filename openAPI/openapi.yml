@@ -303,12 +303,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateTransactionsHistoryResponse'
               example:
+                event_id: "fc56d1b3-68d5-45f2-bce9-0c433c9af20a"
                 payments:
-                  - transaction_id: a55cca2a-6809-11ee-8c99-0242ac1200551
-                    cashback: 0
-                  - transaction_id: e65cca2a-6809-11ee-8c99-0242ac120005531
-                    cashback: 0
-              errors: []
+                  - transaction_id: "a55cca2a-6809-11ee-8c99-0242ac1200551"
+                    cashback: 1.2
+                    payment_date: "2024-03-11"
+                  - transaction_id: "e65cca2a-6809-11ee-8c99-0242ac120005531"
+                    cashback: 1.3
+                    payment_date: "2024-03-12"
+                errors:
+                  - Offer does not exist in transaction: "b65cca2a-6809-11ee-8c99-0242ac1200169"
+                  - Transaction exists: "a8de52aa-49e7-4e5c-bb66-1c82ac1d551d278"
         '422':
           description: Validation Error
           content:
