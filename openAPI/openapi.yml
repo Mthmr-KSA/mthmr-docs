@@ -14,20 +14,20 @@ paths:
         Use this endpoint to obtain an authentication token for accessing other endpoints.
       operationId: get-token
       parameters:
-        - name: APPLICATION-ID
+        - name: applicationId
           in: header
           required: true
           description: The application ID issued when connecting to the application.
           schema:
             type: string
-            title: Application-Id
-        - name: APPLICATION-KEY
+            title: applicationId
+        - name: applicationKey
           in: header
           required: true
           description: The application key issued when connecting to the application.
           schema:
             type: string
-            title: Application-Key
+            title: applicationKey
       responses:
         '200':
           description: Successful Response
@@ -398,6 +398,8 @@ components:
           description: The gender of the customer.
           enum: [Male, Female]
           example: Male
+        location:
+          $ref: '#/components/schemas/LocationBase'
     CustomerListResponse:
       description: An array of objects with the customers.
       type: array
