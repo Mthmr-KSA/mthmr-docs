@@ -1,0 +1,158 @@
+<style>
+  .card_container {
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .card_container2 .card {
+    border-radius: 10px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch !important;
+    transition: all 0.3s ease, border 0.1s ease;
+    width: 32%;
+  }
+
+  .card_container2 .card:hover {
+    cursor: pointer;
+    border: 1px solid #49A476;
+    box-shadow: 0 10px 20px #282a3017;
+    transform: translateY(-2px);
+  }
+
+  .card_container2 .card_image {
+    height: 120px;
+    flex-shrink: 0;
+    width: 100% !important;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card_container2 .image1 {
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/customer.png')
+  }
+
+  .card_container2 .image2 {
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/transaction.png')
+  }
+
+  .card_container2 .image3 {
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/offer.png')
+  }
+
+  .card_container2 .card_text {
+    padding: 10px;
+  }
+
+  .card_container2 .card_text h3 {
+    font-style: normal;
+    line-height: normal;
+    margin: 0;
+    color: #282A30;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .card_container2 .card_text p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 166%;
+    margin: 0;
+    color: #282A30;
+    font-family: "Open Sans";
+  }
+
+  .card_container2 .card:hover .card_text h3,
+  .card_container2 .card:hover .card_text p {
+    color: #367E65;
+  }
+
+  @media only screen and (max-width: 610px) {
+    .card_container2 .card {
+      width: 290px;
+    }
+  }
+
+  @media only screen and (max-width: 330px) {
+    .card_container2 .card {
+      width: 95%;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-color-mode="system"] .card_container2 .card {
+      background-color: #11191E !important;
+      color: var(--white);
+      border-color: #382385;
+    }
+
+    [data-color-mode="system"] .card_container2 .card:hover {
+      border-color: #CEC1FF;
+    }
+
+    [data-color-mode="system"] .card_container2 .card h3 {
+      color: #CEC1FF;
+    }
+
+    [data-color-mode="system"] .card_container2 .card p {
+      color: #dedede;
+    }
+  }
+
+  [data-color-mode="dark"] .card_container2 .card {
+    background-color: #11191E !important;
+    color: var(--white);
+    border-color: var(--primary-6);
+  }
+
+  [data-color-mode="dark"] .card_container2 .card:hover {
+    border-color: var(--primary-7);
+  }
+
+  [data-color-mode="dark"] .card_container2 .card h3 {
+    color: var(--primary-7);
+  }
+
+  [data-color-mode="dark"] .card_container2 .card p {
+    color: #dedede;
+  }
+</style>
+
+<section class="card_container card_container2">
+  <div class="card" onclick="window.location='/reference/the-customer-object'">
+    <div class="card_image image1">
+    </div>
+    <div class="card_text">
+      <h3>Authentication</h3>
+      <p>Learn more</p>
+    </div>
+  </div>
+  <div class="card" onclick="window.location='/reference/the-transaction-object'">
+    <div class="card_image image2">
+    </div>
+    <div class="card_text">
+      <h3>Environments</h3>
+      <p>Learn more</p>
+    </div>
+  </div>
+  <div class="card" onclick="window.location='/reference/get-all-offers'">
+    <div class="card_image image3">
+    </div>
+    <div class="card_text">
+      <h3>HTTP Response Codes</h3>
+      <p>Learn more</p>
+    </div>
+  </div>
+</section>
