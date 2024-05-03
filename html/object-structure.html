@@ -1,0 +1,97 @@
+<style>
+  details {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .card {
+    border-radius: 3px;
+    background: #FAFAFA;
+    border: 1px solid #d7d7d7;
+    margin: 1.5em;
+    border-left: 8px solid #49A476;
+    padding: 0.45em;
+    min-height: 82px;
+  }
+
+  .card p {
+    margin-bottom: 0 !important;
+    margin-left: 20px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-color-mode="system"] .card {
+      background: #595959;
+      border: 1px solid #0b0b0b;
+      border-left: 8px solid #49A476;
+    }
+  }
+
+  [data-color-mode="dark"] .card {
+    background: #383838;
+    border: 1px solid #0b0b0b;
+    border-left: 8px solid #49A476;
+  }
+</style>
+
+<div>
+
+  <div class="card">
+    <p><strong>transaction_id</strong> <small>string</small>
+      <br />The unique identifier of the transaction
+      <br /><small>Example: b65cca2a-6809-11ee-8c99-0242ac120002</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <p><strong>description</strong> <small>string</small>
+      <br />A brief description or note about the transaction.
+      <br /><small>Example: This is a brief note about the transaction.</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <p><strong>customer_id</strong> <small>string</small>
+      <br />The unique identifier of the customer associated with the transaction.
+      <br /><small>Example: a8de52aa-49e7-4e5c-bb66-1c82ac1d551d</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <p><strong>amount</strong> <small>number</small>
+      <br />The monetary value of the transaction.
+      <br /><small>Example: 150</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <p><strong>merchant_name</strong> <small>string</small>
+      <br />The name of the merchant where the transaction occurred.
+      <br /><small>Example: MTHMR</small>
+    </p>
+  </div>
+
+  <details class="card">
+    <summary><strong>location</strong> <small>object</small>
+      <br />
+      <p>An object containing details about the customer's location.</p>
+    </summary>
+    <div>
+
+      <div class="card">
+        <p><strong>country</strong> <small>string</small>
+          <br />The country where the customer resides.
+          <br /><small> Example: KSA </small>
+        </p>
+      </div>
+
+      <div class="card">
+        <p><strong>city</strong> <small>string</small>
+          <br />The city where the customer resides.
+          <br /><small> Example: Riyadh </small>
+        </p>
+      </div>
+    </div>
+  </details>
+
+</div>
