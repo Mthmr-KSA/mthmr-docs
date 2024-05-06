@@ -39,15 +39,15 @@
   }
 
   .card_container1 .image1 {
-    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/customer.png')
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/authentication.png')
   }
 
   .card_container1 .image2 {
-    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/transaction.png')
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/environments.png')
   }
 
   .card_container1 .image3 {
-    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/offer.png')
+    background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/http-response-codes.png')
   }
 
   .card_container1 .card_text {
@@ -62,6 +62,7 @@
     font-family: "Open Sans";
     font-size: 16px;
     font-weight: 700;
+    transition: all 0.3s ease;
   }
 
   .card_container1 .card_text p {
@@ -74,8 +75,7 @@
     font-family: "Open Sans";
   }
 
-  .card_container1 .card:hover .card_text h3,
-  .card_container1 .card:hover .card_text p {
+  .card_container1 .card:hover .card_text h3 {
     color: #367E65;
   }
 
@@ -93,40 +93,32 @@
 
   @media (prefers-color-scheme: dark) {
     [data-color-mode="system"] .card_container1 .card {
-      background-color: #11191E !important;
-      color: var(--white);
-      border-color: #382385;
+      border: 1px solid #38434B !important;
+      background: #20282E !important;
     }
 
     [data-color-mode="system"] .card_container1 .card:hover {
-      border-color: #CEC1FF;
+      border-color: #49A476 !important;
     }
 
-    [data-color-mode="system"] .card_container1 .card h3 {
-      color: #CEC1FF;
-    }
-
-    [data-color-mode="system"] .card_container1 .card p {
-      color: #dedede;
+    [data-color-mode="system"] .card_container1 .card_text h3,
+    [data-color-mode="system"] .card_container1 .card_text p {
+      color: #FFF;
     }
   }
 
   [data-color-mode="dark"] .card_container1 .card {
-    background-color: #11191E !important;
-    color: var(--white);
-    border-color: var(--primary-6);
+    border: 1px solid #38434B !important;
+    background: #20282E !important;
   }
 
   [data-color-mode="dark"] .card_container1 .card:hover {
-    border-color: var(--primary-7);
+    border-color: #49A476 !important;
   }
 
-  [data-color-mode="dark"] .card_container1 .card h3 {
-    color: var(--primary-7);
-  }
-
-  [data-color-mode="dark"] .card_container1 .card p {
-    color: #dedede;
+  [data-color-mode="dark"] .card_container1 .card_text h3,
+  [data-color-mode="dark"] .card_container1 .card_text p {
+    color: #FFF;
   }
 </style>
 

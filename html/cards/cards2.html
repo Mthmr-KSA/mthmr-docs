@@ -38,15 +38,15 @@
     border-radius: 10px 10px 0 0;
   }
 
-  .card_container2 .image1 {
+  .card_container2 .image4 {
     background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/customer.png')
   }
 
-  .card_container2 .image2 {
+  .card_container2 .image5 {
     background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/transaction.png')
   }
 
-  .card_container2 .image3 {
+  .card_container2 .image6 {
     background-image: url('https://raw.githubusercontent.com/writechoiceorg/mthmr-docs/main/html/cards/images/offer.png')
   }
 
@@ -62,6 +62,7 @@
     font-family: "Open Sans";
     font-size: 16px;
     font-weight: 700;
+    transition: all 0.3s ease;
   }
 
   .card_container2 .card_text p {
@@ -93,46 +94,38 @@
 
   @media (prefers-color-scheme: dark) {
     [data-color-mode="system"] .card_container2 .card {
-      background-color: #11191E !important;
-      color: var(--white);
-      border-color: #382385;
+      border: 1px solid #38434B !important;
+      background: #20282E !important;
     }
 
     [data-color-mode="system"] .card_container2 .card:hover {
-      border-color: #CEC1FF;
+      border-color: #49A476 !important;
     }
 
-    [data-color-mode="system"] .card_container2 .card h3 {
-      color: #CEC1FF;
-    }
-
-    [data-color-mode="system"] .card_container2 .card p {
-      color: #dedede;
+    [data-color-mode="system"] .card_container2 .card_text h3,
+    [data-color-mode="system"] .card_container2 .card_text p {
+      color: #FFF;
     }
   }
 
   [data-color-mode="dark"] .card_container2 .card {
-    background-color: #11191E !important;
-    color: var(--white);
-    border-color: var(--primary-6);
+    border: 1px solid #38434B !important;
+    background: #20282E !important;
   }
 
   [data-color-mode="dark"] .card_container2 .card:hover {
-    border-color: var(--primary-7);
+    border-color: #49A476 !important;
   }
 
-  [data-color-mode="dark"] .card_container2 .card h3 {
-    color: var(--primary-7);
-  }
-
-  [data-color-mode="dark"] .card_container2 .card p {
-    color: #dedede;
+  [data-color-mode="dark"] .card_container2 .card_text h3,
+  [data-color-mode="dark"] .card_container2 .card_text p {
+    color: #FFF;
   }
 </style>
 
 <section class="card_container card_container2">
   <div class="card" onclick="window.location='/reference/the-customer-object'">
-    <div class="card_image image1">
+    <div class="card_image image4">
     </div>
     <div class="card_text">
       <h3>Authentication</h3>
@@ -140,7 +133,7 @@
     </div>
   </div>
   <div class="card" onclick="window.location='/reference/the-transaction-object'">
-    <div class="card_image image2">
+    <div class="card_image image5">
     </div>
     <div class="card_text">
       <h3>Environments</h3>
@@ -148,7 +141,7 @@
     </div>
   </div>
   <div class="card" onclick="window.location='/reference/get-all-offers'">
-    <div class="card_image image3">
+    <div class="card_image image6">
     </div>
     <div class="card_text">
       <h3>HTTP Response Codes</h3>
